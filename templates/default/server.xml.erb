@@ -83,6 +83,27 @@
              <% if node["tomcat"].has_key?("max_threads") -%>
                maxThreads="<%= node["tomcat"]["max_threads"] %>"
              <% end -%>
+              <% if node["tomcat"].has_key?("minSpareThreads") -%>
+               minSpareThreads="<%= node["tomcat"]["minSpareThreads"] %>"
+             <% end -%>
+             <% if node["tomcat"].has_key?("maxSpareThreads") -%>
+               maxSpareThreads="<%= node["tomcat"]["maxSpareThreads"] %>"
+             <% end -%>
+             <% if node["tomcat"].has_key?("enableLookups") -%>
+               enableLookups="<%= node["tomcat"]["enableLookups"] %>"
+             <% end -%>
+              <% if node["tomcat"].has_key?("acceptCount") -%>
+               acceptCount="<%= node["tomcat"]["acceptCount"] %>"
+             <% end -%>
+              <% if node["tomcat"].has_key?("proxyName") -%>
+               proxyName="<%= node["tomcat"]["proxyName"] %>"
+             <% end -%>
+              <% if node["tomcat"].has_key?("connectionTimeout") -%>
+               connectionTimeout="<%= node["tomcat"]["connectionTimeout"] %>"
+             <% end -%>
+              <% if node["tomcat"].has_key?("disableUploadTimeout") -%>
+               disableUploadTimeout="<%= node["tomcat"]["disableUploadTimeout"] %>"
+             <% end -%>
                redirectPort="<%= node["tomcat"]["ssl_port"] %>" />
     <!-- A "Connector" using the shared thread pool-->
     <!--
@@ -104,6 +125,27 @@
                keystoreType="<%= node["tomcat"]["keystore_type"] %>"
                truststorePass="<%= node['tomcat']['keystore_password'] %>"
                maxThreads="<%= node["tomcat"]["ssl_max_threads"] %>" scheme="https" secure="true"
+               <% if node["tomcat"].has_key?("ssl_minSpareThreads") -%>
+                 minSpareThreads="<%= node["tomcat"]["ssl_minSpareThreads"] %>"
+               <% end -%>
+               <% if node["tomcat"].has_key?("ssl_maxSpareThreads") -%>
+                 maxSpareThreads="<%= node["tomcat"]["ssl_maxSpareThreads"] %>"
+               <% end -%>
+               <% if node["tomcat"].has_key?("ssl_enableLookups") -%>
+                 enableLookups="<%= node["tomcat"]["ssl_enableLookups"] %>"
+               <% end -%>
+                <% if node["tomcat"].has_key?("ssl_acceptCount") -%>
+                 acceptCount="<%= node["tomcat"]["ssl_acceptCount"] %>"
+               <% end -%>
+                <% if node["tomcat"].has_key?("ssl_proxyName") -%>
+                 proxyName="<%= node["tomcat"][ssl_"proxyName"] %>"
+               <% end -%>
+                <% if node["tomcat"].has_key?("ssl_connectionTimeout") -%>
+                 connectionTimeout="<%= node["tomcat"]["ssl_connectionTimeout"] %>"
+               <% end -%>
+                <% if node["tomcat"].has_key?("ssl_disableUploadTimeout") -%>
+                 disableUploadTimeout="<%= node["tomcat"]["ssl_disableUploadTimeout"] %>"
+               <% end -%>
                clientAuth="false" sslProtocol="TLS" />
 
     <!-- Define an AJP 1.3 Connector on port <%= node["tomcat"]["ajp_port"] %> -->
